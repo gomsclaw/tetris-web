@@ -107,6 +107,7 @@ jobs:
         run: npm run test:e2e
         env:
           PLAYWRIGHT_BASE_URL: ${{ needs.deploy-production.outputs.deployment-url }}
+          VERCEL_BYPASS_TOKEN: ${{ secrets.VERCEL_BYPASS_TOKEN }}
 
       - name: Playwright 리포트 업로드
         uses: actions/upload-artifact@v4
