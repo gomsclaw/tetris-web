@@ -14,14 +14,14 @@ import type { TetrominoType } from '../game/tetrominos';
 // EntryScreen
 // ──────────────────────────────────────────
 describe('EntryScreen', () => {
-  it('TETRIS 제목 표시', () => {
+  it('헤드라인 표시', () => {
     render(<EntryScreen bestScore={0} onStart={() => {}} />);
-    expect(screen.getByText('TETRIS')).toBeInTheDocument();
+    expect(screen.getByText('설치 없이 바로, 클래식 테트리스')).toBeInTheDocument();
   });
 
-  it('Start Game 버튼 표시', () => {
+  it('지금 플레이 버튼 표시', () => {
     render(<EntryScreen bestScore={0} onStart={() => {}} />);
-    expect(screen.getByRole('button', { name: /start game/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /지금 플레이/i })).toBeInTheDocument();
   });
 
   it('bestScore=0이면 최고 점수 섹션 숨김', () => {
@@ -35,10 +35,10 @@ describe('EntryScreen', () => {
     expect(screen.getByText('12,345')).toBeInTheDocument();
   });
 
-  it('Start Game 클릭 시 onStart 콜백 호출', () => {
+  it('지금 플레이 클릭 시 onStart 콜백 호출', () => {
     const onStart = vi.fn();
     render(<EntryScreen bestScore={0} onStart={onStart} />);
-    fireEvent.click(screen.getByRole('button', { name: /start game/i }));
+    fireEvent.click(screen.getByRole('button', { name: /지금 플레이/i }));
     expect(onStart).toHaveBeenCalledTimes(1);
   });
 
