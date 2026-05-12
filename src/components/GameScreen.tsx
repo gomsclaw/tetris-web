@@ -52,6 +52,17 @@ export function GameScreen() {
     };
   }, [screen]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // 탭 비활성화 시 자동 일시정지
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden && screen === 'playing') {
+        pauseGame();
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, [screen, pauseGame]);
+
   // 키보드 컨트롤
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
