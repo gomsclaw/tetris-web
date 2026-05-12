@@ -1,12 +1,37 @@
+import { useTetrisStore } from './game/store';
+import { EntryScreen } from './components/EntryScreen';
+import { GameScreen } from './components/GameScreen';
+import { PauseOverlay } from './components/PauseOverlay';
+import { GameOverOverlay } from './components/GameOverOverlay';
+
 function App() {
+  const { screen, game, bestScore, startGame, resumeGame, restartGame } = useTetrisStore();
+
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Web Tetris</h1>
-        <p className="text-gray-400">게임 준비 중...</p>
-      </div>
-    </div>
-  )
+    <>
+      {screen === 'entry' && (
+        <EntryScreen bestScore={bestScore} onStart={startGame} />
+      )}
+
+      {(screen === 'playing' || screen === 'paused' || screen === 'gameover') && (
+        <GameScreen />
+      )}
+
+      {screen === 'paused' && (
+        <PauseOverlay onResume={resumeGame} />
+      )}
+
+      {screen === 'gameover' && (
+        <GameOverOverlay
+          score={game.score}
+          bestScore={bestScore}
+          lines={game.lines}
+          level={game.level}
+          onPlayAgain={restartGame}
+        />
+      )}
+    </>
+  );
 }
 
-export default App
+export default App;
