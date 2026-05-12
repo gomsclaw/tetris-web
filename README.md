@@ -1,6 +1,6 @@
 # Web Tetris — 설치 없이 바로, 클래식 테트리스
 
-**▶ [지금 플레이 →](https://tetris-web.vercel.app)**
+**▶ [지금 플레이 →](https://tetris-web-tau.vercel.app)**
 
 > 브라우저만 있으면 됩니다. URL 하나로 즉시 플레이 — 로그인도, 다운로드도 없이.
 
