@@ -6,12 +6,12 @@ export function PauseOverlay({ onResume }: Props) {
   return (
     <div
       className="fixed inset-0 flex items-center justify-center z-50"
-      style={{ backgroundColor: 'rgba(0,0,0,0.4)' }}
+      style={{ backgroundColor: 'rgba(2,2,4,0.75)' }}
       role="dialog"
       aria-modal="true"
       aria-label="일시정지"
     >
-      <div className="bg-gray-900 border border-gray-700 rounded-xl p-10 flex flex-col items-center gap-6 shadow-2xl">
+      <div className="bg-gray-900 border border-gray-600 rounded-xl p-10 flex flex-col items-center gap-6 shadow-2xl">
         <h2 className="text-3xl font-bold text-white">일시정지</h2>
         <button
           onClick={onResume}

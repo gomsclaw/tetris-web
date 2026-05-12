@@ -12,12 +12,12 @@ export function GameOverOverlay({ score, bestScore, lines, level, onPlayAgain }:
   return (
     <div
       className="fixed inset-0 flex items-center justify-center z-50"
-      style={{ backgroundColor: 'rgba(0,0,0,0.7)' }}
+      style={{ backgroundColor: 'rgba(2,2,4,0.85)' }}
       role="dialog"
       aria-modal="true"
       aria-label="게임 오버"
     >
-      <div className="bg-gray-900 border border-gray-700 rounded-xl p-10 flex flex-col items-center gap-5 shadow-2xl min-w-60">
+      <div className="bg-gray-900 border border-gray-600 rounded-xl p-10 flex flex-col items-center gap-5 shadow-2xl min-w-60">
         <h2 className="text-4xl font-extrabold text-red-400">Game Over</h2>
 
         {isNewBest && (

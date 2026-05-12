@@ -113,9 +113,12 @@ export function GameScreen() {
   const currents = currentCells();
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-950">
-      <div className="flex gap-4 items-start">
-        <div className="relative" style={{ width: 'min(50vw, 300px)' }}>
+    <div
+      className="flex items-center justify-center min-h-screen px-3 py-3"
+      style={{ background: 'radial-gradient(ellipse at 50% 40%, #0d0d1f 0%, #020204 100%)' }}
+    >
+      <div className="flex gap-3 items-start">
+        <div className="relative flex-shrink-0" style={{ width: 'min(50vw, 300px)' }}>
           <GameBoard
             board={game.board}
             currentCells={currents}
