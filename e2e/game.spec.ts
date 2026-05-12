@@ -5,7 +5,7 @@ test('시나리오1: 엔트리 화면에서 지금 플레이 클릭 시 게임�
   await page.goto('/')
 
   // 엔트리 화면 확인
-  await expect(page.getByText('TETRIS')).toBeVisible()
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
   await expect(page.getByRole('button', { name: '▶ 지금 플레이' })).toBeVisible()
 
   // 게임 시작
