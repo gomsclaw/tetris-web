@@ -16,7 +16,7 @@ test('시나리오1: 엔트리 화면에서 지금 플레이 클릭 시 게임�
 
   // 점수/레벨 패널 확인
   await expect(page.getByText('Score')).toBeVisible()
-  await expect(page.getByText('Level')).toBeVisible()
+  await expect(page.getByText('Lv')).toBeVisible()
   await expect(page.getByText('Next')).toBeVisible()
 })
 
