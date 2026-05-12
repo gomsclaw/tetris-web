@@ -1,6 +1,7 @@
 import { defineConfig, devices } from '@playwright/test'
 
 const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? 'http://localhost:5173'
+const bypassToken = process.env.VERCEL_BYPASS_TOKEN
 
 export default defineConfig({
   testDir: './e2e',
@@ -12,6 +13,9 @@ export default defineConfig({
   use: {
     baseURL,
     trace: 'on-first-retry',
+    ...(bypassToken && {
+      extraHTTPHeaders: { 'x-vercel-protection-bypass': bypassToken },
+    }),
   },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },

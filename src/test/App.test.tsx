@@ -9,15 +9,15 @@ beforeEach(() => {
 })
 
 describe('App', () => {
-  it('초기 화면: TETRIS 제목과 Start Game 버튼 표시', () => {
+  it('초기 화면: 헤드라인과 지금 플레이 버튼 표시', () => {
     render(<App />)
-    expect(screen.getByText('TETRIS')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: /start game/i })).toBeInTheDocument()
+    expect(screen.getByText('설치 없이 바로, 클래식 테트리스')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /지금 플레이/i })).toBeInTheDocument()
   })
 
-  it('Start Game 클릭 시 screen=playing으로 전환', () => {
+  it('지금 플레이 클릭 시 screen=playing으로 전환', () => {
     render(<App />)
-    fireEvent.click(screen.getByRole('button', { name: /start game/i }))
+    fireEvent.click(screen.getByRole('button', { name: /지금 플레이/i }))
     expect(useTetrisStore.getState().screen).toBe('playing')
   })
 

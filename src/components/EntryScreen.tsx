@@ -5,11 +5,16 @@ interface Props {
 
 export function EntryScreen({ bestScore, onStart }: Props) {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-950 text-white px-4">
-      <h1 className="text-6xl font-extrabold tracking-tight mb-2 text-cyan-400">
-        TETRIS
+    <div
+      className="flex flex-col items-center justify-center min-h-screen text-white px-4"
+      style={{ background: 'radial-gradient(ellipse at 50% 40%, #0d0d1f 0%, #020204 100%)' }}
+    >
+      <h1 className="text-4xl font-extrabold tracking-tight mb-3 text-cyan-400 text-center leading-tight">
+        설치 없이 바로, 클래식 테트리스
       </h1>
-      <p className="text-gray-400 mb-8 text-lg">웹 테트리스</p>
+      <p className="text-gray-400 mb-8 text-base text-center max-w-sm leading-relaxed">
+        브라우저만 있으면 됩니다. URL 하나로 즉시 플레이 — 로그인도, 다운로드도 없이.
+      </p>
 
       {bestScore > 0 && (
         <div className="mb-6 text-center">
@@ -23,7 +28,7 @@ export function EntryScreen({ bestScore, onStart }: Props) {
         className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-10 py-4 rounded-lg text-xl transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-300"
         autoFocus
       >
-        Start Game
+        ▶ 지금 플레이
       </button>
 
       <div className="mt-10 text-sm text-gray-500 space-y-1 text-center">

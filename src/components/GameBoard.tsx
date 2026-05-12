@@ -29,12 +29,13 @@ export function GameBoard({ board, currentCells, ghostCells, currentType }: Prop
 
   return (
     <div
-      className="relative border-2 border-gray-600 bg-gray-950"
+      className="relative border-2 border-gray-500 bg-gray-950"
       style={{
         display: 'grid',
         gridTemplateColumns: `repeat(${BOARD_COLS}, 1fr)`,
         width: '100%',
         aspectRatio: `${BOARD_COLS} / ${BOARD_ROWS}`,
+        boxShadow: '0 0 0 1px rgba(6,182,212,0.12), 0 0 40px rgba(6,182,212,0.07), 0 24px 64px rgba(0,0,0,0.7)',
       }}
       role="grid"
       aria-label="테트리스 게임 보드"
@@ -48,18 +49,17 @@ export function GameBoard({ board, currentCells, ghostCells, currentType }: Prop
 
           let bg = 'transparent';
           let opacity = 1;
-          let border = 'transparent';
+          let borderColor = 'rgba(255,255,255,0.04)';
 
           if (isCurrent) {
             bg = CELL_COLORS[colorCode];
-            border = 'rgba(255,255,255,0.3)';
+            borderColor = 'rgba(255,255,255,0.3)';
           } else if (isGhost) {
-            bg = 'transparent';
-            border = ghostColor;
+            borderColor = ghostColor;
             opacity = 0.5;
           } else if (boardVal !== 0) {
             bg = CELL_COLORS[boardVal];
-            border = 'rgba(255,255,255,0.2)';
+            borderColor = 'rgba(255,255,255,0.2)';
           }
 
           return (
@@ -69,9 +69,9 @@ export function GameBoard({ board, currentCells, ghostCells, currentType }: Prop
               style={{
                 backgroundColor: bg,
                 opacity,
-                borderWidth: boardVal !== 0 || isCurrent ? '1px' : '0',
+                borderWidth: '1px',
                 borderStyle: 'solid',
-                borderColor: border,
+                borderColor,
                 boxSizing: 'border-box',
               }}
             />
