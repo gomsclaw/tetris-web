@@ -1,15 +1,15 @@
 import { test, expect } from '@playwright/test'
 
 // 시나리오 1: 엔트리 화면 → 게임 시작
-test('시나리오1: 엔트리 화면에서 Start Game 클릭 시 게임이 시작된다', async ({ page }) => {
+test('시나리오1: 엔트리 화면에서 지금 플레이 클릭 시 게임이 시작된다', async ({ page }) => {
   await page.goto('/')
 
   // 엔트리 화면 확인
   await expect(page.getByText('TETRIS')).toBeVisible()
-  await expect(page.getByRole('button', { name: 'Start Game' })).toBeVisible()
+  await expect(page.getByRole('button', { name: '▶ 지금 플레이' })).toBeVisible()
 
   // 게임 시작
-  await page.getByRole('button', { name: 'Start Game' }).click()
+  await page.getByRole('button', { name: '▶ 지금 플레이' }).click()
 
   // 게임 보드가 표시됨 (role=grid)
   await expect(page.getByRole('grid', { name: '테트리스 게임 보드' })).toBeVisible()
@@ -23,7 +23,7 @@ test('시나리오1: 엔트리 화면에서 Start Game 클릭 시 게임이 시�
 // 시나리오 2: 게임 중 일시정지 → 재개
 test('시나리오2: P 키로 일시정지하고 Resume 버튼으로 재개된다', async ({ page }) => {
   await page.goto('/')
-  await page.getByRole('button', { name: 'Start Game' }).click()
+  await page.getByRole('button', { name: '▶ 지금 플레이' }).click()
 
   // 게임 보드 표시 확인
   await expect(page.getByRole('grid')).toBeVisible()
@@ -42,7 +42,7 @@ test('시나리오2: P 키로 일시정지하고 Resume 버튼으로 재개된�
 // 시나리오 3: 게임 오버 → Play Again
 test('시나리오3: 게임 오버 후 Play Again으로 새 게임 시작', async ({ page }) => {
   await page.goto('/')
-  await page.getByRole('button', { name: 'Start Game' }).click()
+  await page.getByRole('button', { name: '▶ 지금 플레이' }).click()
   await expect(page.getByRole('grid')).toBeVisible()
 
   // 게임 오버를 강제로 유발: Space(하드드롭) 를 빠르게 반복
