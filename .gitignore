@@ -31,3 +31,4 @@ dist-ssr
 
 # Coverage
 /coverage/
+.vercel
