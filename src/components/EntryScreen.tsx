@@ -1,0 +1,39 @@
+interface Props {
+  bestScore: number;
+  onStart: () => void;
+}
+
+export function EntryScreen({ bestScore, onStart }: Props) {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-950 text-white px-4">
+      <h1 className="text-6xl font-extrabold tracking-tight mb-2 text-cyan-400">
+        TETRIS
+      </h1>
+      <p className="text-gray-400 mb-8 text-lg">웹 테트리스</p>
+
+      {bestScore > 0 && (
+        <div className="mb-6 text-center">
+          <div className="text-xs text-gray-500 uppercase tracking-wider">최고 점수</div>
+          <div className="text-3xl font-bold text-yellow-400">{bestScore.toLocaleString()}</div>
+        </div>
+      )}
+
+      <button
+        onClick={onStart}
+        className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-10 py-4 rounded-lg text-xl transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-300"
+        autoFocus
+      >
+        Start Game
+      </button>
+
+      <div className="mt-10 text-sm text-gray-500 space-y-1 text-center">
+        <div className="font-semibold text-gray-400 mb-2">키보드 조작</div>
+        <div>← → — 이동</div>
+        <div>↓ — 소프트 드롭</div>
+        <div>Space — 하드 드롭</div>
+        <div>↑ — CW 회전 &nbsp; Z — CCW 회전</div>
+        <div>C — 홀드 &nbsp; P — 일시정지</div>
+      </div>
+    </div>
+  );
+}
