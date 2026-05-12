@@ -1,5 +1,5 @@
 # Web Tetris
-
+pilot prject powered by Paperclip ai 
 Vite + React 18 + TypeScript 기반 웹 테트리스 게임
 
 ## 스택
